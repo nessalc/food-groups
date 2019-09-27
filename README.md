@@ -51,9 +51,9 @@ A group of developers is getting together to socialize. Find a place that can ac
 - Open app
 - Choose predefined group or search for/select individuals
 - Click/press "Find Restaurant"
-- See ranked choices (Top 5? Configurable?). Option to send choices to others for review
+- See ranked choices (Top 5? Configurable?). Option to send choices to others for review (push notifications, SMS, and/or email)
 - Review process allows a veto on specific restaurants, proposal of further options, or dropping out of group; will prompt for revote if mutual agreement cannot be reached
-- After selection has been made, send message to selected individuals with directions to choice.
+- After selection has been made, send message to selected individuals with directions to choice (push notifications, SMS, and/or email)
 
 # Definitions
 
@@ -74,6 +74,7 @@ Some definitions must be established for this to work, as different people, even
 1. Determine database and framework to utilize.
    - After many iterations, I'm leaning toward a graph database (Neo4j? OrientDB?)
    - React? Angular? Vue? Something Else? I'm somewhat familiar with React already...
+   - Needs to be multi-platform
 2. Build database schema
 3. Build basic CRUD interface
 4. Populate database (crowdsource)
