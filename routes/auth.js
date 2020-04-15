@@ -21,7 +21,7 @@ router.post(
   '/',
   [
     check('email', 'Please include a valid email').isEmail(),
-    check('password', 'Password is required').exists()
+    check('password', 'Password is required').exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -40,14 +40,21 @@ router.post(
       }
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       };
       jwt.sign(
         payload,
-        Buffer.from(config.get('jwtSecret'), 'base64'),
+        Buffer.from(
+          config.get('jwt.secret'),
+          ''
+          //config.has('jwt.encoded') ? config.get('jwt.encoded') : 'utf8'
+        ),
         {
-          expiresIn: 60 * 60 * 24 * 7
+          algorithm: config.has('jwt.algorithm')
+            ? config.get('jwt.algorithm')
+            : 'HS256',
+          expiresIn: 60 * 60 * 24 * 7,
         },
         (err, token) => {
           if (err) throw err;

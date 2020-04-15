@@ -1,0 +1,46 @@
+{
+  /*
+  database options
+  */
+  db: {
+    /*
+    `mongoURI` is the URI of the MongoDB server. Currently this is the only
+    available option, and is required.
+    */
+    mongoURI: 'mongodb://localhost/food-groups',
+  },
+  /*
+  json web token options
+  */
+  jwt: {
+    /*
+    `secret` is a string representation of the secret used to verify the json
+    web token. One option to generate a base64 encoded key is to use the
+    following Python code:
+      base64.b64encode(secrets.token_bytes(256//8))
+    This parameter is required.
+    */
+    secret: 'secret',
+    /*
+    `encoded` denotes the encoding of the secret itself and can be any of:
+      ascii
+      base64
+      binary
+      hex
+      latin1
+      ucs-2
+      ucs2
+      utf-8
+      utf16le
+      utf8
+    The default option is utf8.
+    */
+    encoded: 'ascii',
+    /*
+    `algorithm` is the algorithm used to sign the json web token. Only HMAC
+    versions are currently supported (HS256, HS384, HS512). The default is
+    HS256.
+    */
+    algorithm: 'HS256',
+  },
+}

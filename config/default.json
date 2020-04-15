@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb://localhost/food-groups",
-  "jwtSecret": "secret"
-}
