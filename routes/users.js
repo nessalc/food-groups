@@ -9,14 +9,12 @@ const User = require('../models/User');
 router.post(
   '/',
   [
-    check('name', 'Please add name')
-      .not()
-      .isEmpty(),
+    check('name', 'Please add name').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
     check(
       'password',
       'Please enter a password with 6 or more characters'
-    ).isLength({ min: 6 })
+    ).isLength({ min: 6 }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -32,20 +30,23 @@ router.post(
       user = new User({
         name,
         email,
-        password
+        password,
       });
       user.password = await bcrypt.hash(password, 10);
       await user.save();
       const payload = {
         user: {
-          id: user.id
-        }
+          id: user.id,
+        },
       };
       jwt.sign(
         payload,
-        Buffer.from(config.get('jwtSecret'), 'base64'),
+        Buffer.from(
+          config.get('jwt.secret'),
+          config.has('jwt.encoded') ? config.get('jwt.encoded') : 'utf8'
+        ),
         {
-          expiresIn: 60 * 60 * 24 * 7
+          expiresIn: 60 * 60 * 24 * 7,
         },
         (err, token) => {
           if (err) throw err;

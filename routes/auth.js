@@ -47,8 +47,7 @@ router.post(
         payload,
         Buffer.from(
           config.get('jwt.secret'),
-          ''
-          //config.has('jwt.encoded') ? config.get('jwt.encoded') : 'utf8'
+          config.has('jwt.encoded') ? config.get('jwt.encoded') : 'utf8'
         ),
         {
           algorithm: config.has('jwt.algorithm')
