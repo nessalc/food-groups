@@ -1,31 +1,32 @@
 const mongoose = require('mongoose');
+require('mongoose-type-email');
 
 const UserSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
-    type: String,
+    type: mongoose.SchemaTypes.Email,
     required: true,
     unique: true,
-    lowercase: true
+    lowercase: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   social: {
     type: Map,
-    of: String
+    of: String,
   },
   birthday: {
-    type: Date
+    type: Date,
   },
   date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model('user', UserSchema);

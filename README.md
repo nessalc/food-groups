@@ -98,18 +98,18 @@ Some definitions must be established for this to work, as different people, even
 
 ## Agenda
 
-1. Determine database and framework to utilize.
-   - MongoDB
-   - React
-   - Figure out multi-platform stuff later
-2. Build database schema
-3. Build basic CRUD interface
-4. Populate database (crowdsource with select trusted individuals)
-5. Begin work on real application
-   - develop roadmap
-   - user stories
-   - sprints
-   - blah blah blah
+- [x] Determine database and framework to utilize.
+  - [x] MongoDB
+  - [x] React
+  - [x] (temporarily) use web interface for tablet/phone
+- [ ] Build database schema (**_in progress_**)
+- [ ] Build basic CRUD interface
+- [ ] Populate database (crowdsource with select trusted individuals)
+- [ ] Begin work on real application
+  - [ ] develop roadmap
+  - [ ] user stories
+  - [ ] sprints
+  - [ ] blah blah blah
 
 ## Issues I've Encountered
 
@@ -125,4 +125,10 @@ I've worked on this on-and-off for years, and have encountered issues with each 
 
 ## Progress
 
-I've started a MongoDB/Node/Express back-end, but am still working on the schema. I've got User authentication set up and plan to use jwt for continuous authorization for CRUD. It seems to be more reliable than other methods I've seen for session timeout. As of right now, the schema (in `./models`) are very basic, and will require a good deal of overhaul, but my initial intention is just to get the basics down. Basically, I'm combining #2 and #3 from the [Agenda](#agenda) section before soliciting help for #4.
+I've started a MongoDB/Node/Express back-end, and am working on the schema. I've got user authentication set up on the front and back end, and it implements (somewhat) configurable [JWT](https://jwt.io) for continuous authorization for CRUD. It seems to be more reliable than other methods I've seen for session timeout. As of right now, the schema (in `./models`) are very basic, and will require a good deal of overhaul, but my initial intention _is_ just to get the basics down.
+
+### Planned Future Tweaks:
+
+- [ ] Make sure I've purged the project of references to what it used to be
+- [ ] Use Redux for state management
+- [ ] Use Materialize for styling (friendlier to multiple layouts)
